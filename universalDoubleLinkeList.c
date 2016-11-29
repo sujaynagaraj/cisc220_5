@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+//Union that can contain different types of data
 typedef union {
   int intData;
   int* intPointData;
@@ -22,20 +24,22 @@ typedef struct Node {
 
 Node* head = NULL;
 Node* last = NULL;
-Node* current=NULL;
 
 
 void insert(int index,  Data data){
 	int i;
-	Node *newNode, *temp;
-	if (head==NULL){
-		newNode= (Node*)malloc(sizeof(Node)); 
+	Node *newNode, *temp; // *newNode is a pointer to the newNode to insert. *temp is a pointer that helps us traverse through list
+	
+	//dealing with an empty linked list
+	if (head==NULL){ 
+		newNode= (Node*)malloc(sizeof(Node)); //allocating memory
 		newNode->data=data;
 		newNode->next=NULL;
 		newNode->previous=NULL;
 		head=newNode;
-		last=newNode;
+		last=newNode;//because the newNode is the only node now
 	}
+	//adding to the beginning of the list
 	else if (index==0){
 		newNode=(Node*)malloc(sizeof(Node));
 		newNode->data=data;
@@ -45,17 +49,19 @@ void insert(int index,  Data data){
 		head=newNode;	
 	}	
 	//elif adding to end of list
+	//this can be implemented once we have a length function
 
 	else {
 		temp=head;
 		i=0;
+		
+		//need to add: traversal from tail to head if it is more efficient. Need length function
 		while(i<index-1 && temp!=NULL){ // traversing through list from head
-			temp=temp->next;
+			temp=temp->next; //incrementing the pointer
 			i++;
-
 		}
-		newNode= (Node*)malloc(sizeof(Node)); //allocate memory
-		newNode->data=data;// put data into newNode
+		newNode= (Node*)malloc(sizeof(Node));
+		newNode->data=data;
 		newNode->next=temp->next;
 		newNode->previous=temp;
 		if (temp->next != NULL){
@@ -68,6 +74,7 @@ void insert(int index,  Data data){
   
 }
 
+//Copied from another website. Helps with testing. NEED TO DELETE BEFORE SUBMISSION.
 void displayList()
 {
     Node * temp;
@@ -93,6 +100,8 @@ void displayList()
         }
     }
 }
+
+//COPIED FROM ANOTHER WEBSITE. GOOD FOR TESTING. NEED TO DELETE BEFORE SUBMISSION. Feel free to add code to help test your individual functions.
 int main(){
 
 int n, choice=1;
