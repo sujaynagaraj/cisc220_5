@@ -71,7 +71,6 @@ void insert(int index,  Data data){
 	}
   
   
-  
 }
 
 //Copied from another website. Helps with testing. NEED TO DELETE BEFORE SUBMISSION.
@@ -171,7 +170,6 @@ int dataToAdd;
  
         printf("\n\n\n\n\n");
     }
-
 return(0);
 }
 
