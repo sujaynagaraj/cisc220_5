@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 typedef union {
-	int intData;
+  int intData;
   int* intPointData;
   float floatData;
   float* floatPointData;
@@ -24,6 +24,8 @@ typedef struct Node Node;
 Node* head = NULL;
 Node* last = NULL;
 Node* current=NULL;
+
+
 void insert(int index,  Data data){
 	int i;
 	Node *newNode, *temp;
@@ -32,9 +34,9 @@ void insert(int index,  Data data){
 		newNode->data=data;
 		newNode->next=NULL;
 		newNode->previous=NULL;
-		newNode->index=0;
 		head=newNode;
-	}
+		last=newNode;
+	}	
 
 	else {
 		temp=head;
@@ -48,7 +50,6 @@ void insert(int index,  Data data){
 		newNode->data=data;// put data into newNode
 		newNode->next=temp->next;
 		newNode->previous=temp;
-		newNode->index=index;
 		if (temp->next != NULL){
 			temp->next->previous=newNode;
 		}
@@ -88,11 +89,7 @@ int main(){
 
 int n, choice=1;
 Data newData;
-int data;
- 
-    head = NULL;
-    last = NULL;
- 
+int dataToAdd;
     /*
      * Runs forever until user chooses 0
      */
@@ -142,8 +139,8 @@ int data;
                 printf("Enter the position where you want to insert new node: ");
                 scanf("%d", &n);
                 printf("Enter data of %d node : ", n);
-                scanf("%d", &data);
- 		newData.intData=data;
+                scanf("%d", &dataToAdd);
+ 		newData.intData=dataToAdd;
                 insert(n, newData);
                 break;
             case 5:
