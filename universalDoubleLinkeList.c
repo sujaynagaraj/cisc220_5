@@ -9,7 +9,7 @@ typedef union {
   char* charPointData;
 } Data;
 
-struct Node {
+typedef struct Node {
   
   Data data;
   int index;
@@ -17,9 +17,8 @@ struct Node {
   struct Node* previous;
   struct Node* next;
   
-};
+} Node;
 
-typedef struct Node Node;
 
 Node* head = NULL;
 Node* last = NULL;
@@ -36,12 +35,21 @@ void insert(int index,  Data data){
 		newNode->previous=NULL;
 		head=newNode;
 		last=newNode;
+	}
+	else if (index==0){
+		newNode=(Node*)malloc(sizeof(Node));
+		newNode->data=data;
+		newNode->next=head;
+		newNode->previous=NULL;
+		head->previous=newNode;
+		head=newNode;	
 	}	
+	//elif adding to end of list
 
 	else {
 		temp=head;
 		i=0;
-		while(i<index && temp!=NULL){ // traversing through list from head
+		while(i<index-1 && temp!=NULL){ // traversing through list from head
 			temp=temp->next;
 			i++;
 
