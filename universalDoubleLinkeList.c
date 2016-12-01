@@ -124,6 +124,8 @@ void removeNode(int index){
 	// iii) We are removing the only node in the list.
 	// to achieve this, point head to NULL and last to NULL. This creates an empty list.
 	else if (index==0 && head->next==NULL){
+		Node *temp=head;
+		free(temp);
 		head=NULL;
 		last=NULL;
 	}		
