@@ -31,7 +31,7 @@ typedef struct Node {
 
   struct Node* next;
 
-  void dataType;  
+  void* dataType;  
 } Node;
 
 
@@ -81,9 +81,9 @@ void insert(int index,  Data data, int dataType){
 
 	else {
 		temp=head;
-		int len = newNode->length;
+		int len = head->length;
 		
-		if (index<=(len/2){
+		if (index<=(len/2)){
 			temp=last;
 			i=len-1;
 			while(i>index && temp!=NULL){ // traversing through list from tail
@@ -291,7 +291,8 @@ int dataToAdd;
                 printf("Enter data of %d node : ", n);
                 scanf("%d", &dataToAdd);
  		newData.intData=dataToAdd;
-                insert(n, newData);
+		int dataType=0;
+                insert(n, newData, dataType);
                 break;
             case 5:
                 displayList();
