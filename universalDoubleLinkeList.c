@@ -107,145 +107,65 @@ void insert(int index,  Data data){
 
 
 void removeNode(int index){
-
-	
-
-// We will first consider the possible edge cases (not all need to be done on their own,
-
+	// We will first consider the possible edge cases (not all need to be done on their own,
 	// but this is a group assignment and doing so makes the code easier to follow).
 
+	int lengthOfList = head->length;
 	
-
-	//int lengthOfList = length(); **REQUIRES LENGTH FUNCTION**
-
 	// i) If list is empty, we are done.
-
-	
-
 	if (head==NULL){
-
 		return;
-
 	}
-
-	
-
 	// ii) The index is out of range; do nothing. **REQUIRES LENGTH FUNCTION**
-
-	
-
-	/* else if (index > lengthOfList){
-
+	else if (index > lengthOfList){
 		return;
-
-	} 		*/
-
-	
-
+	} 		
 	// iii) We are removing the only node in the list.
-
 	// to achieve this, point head to NULL and last to NULL. This creates an empty list.
-
-	
-
 	else if (index==0 && head->next==NULL){
-
 		head=NULL;
-
 		last=NULL;
-
 	}		
-
-	
-
 	// iv) We are removing the first node in the list and it contains more than one element.
-
 	// to acheive this, head to the first node, store its 'next pointer' in a temporary variable
-
 	// and point head to this temporary variable.
-
-	
-
 	else if (index==0){
-
  		Node *temp;
-
 		temp=head->next;
-
 		head=temp;
-
 	}
-
-	
-
 	// v) We are removing the last node in the list and it contains more than one element.
-
 	// to achieve this, head to the last node, and then head to its previous node. Then,
-
 	//  point the penultimate node's next pointer to NULL. 
-
-	
-
-	/*else if (index==lengthOfList){ **REQUIRES LENGTH FUNCTION**
-
+	else if (index==lengthOfList){ 
 		Node *temp;
-
 		temp=last->previous;
-
 		temp->next=NULL;
-
 		last=temp;
-
-	}*/
-
-	
-
+	}
 	// Finally, if the node is any other node, we will use the length function to determine 
-
 	// whether iteration from head or iteration from last is faster. The structure of the 
-
 	// conditional statements should guarantee that this block only executes if index is in 
-
 	// range, and it is neither the head nor tail of the list. 	
-
 	else{
-
 		// If iterating from head is faster;
-
 		int currentIndex=0;
-
 		Node *currentNode=head;
-
 		
-
 		while (currentIndex < index-1){ // stops one node before the node being removed
-
 			currentIndex++;
-
 			currentNode=currentNode->next; // move forward one node
-
 		}
-
 		// Insert code for when iterating from tail is faster **REQUIRES LENGTH FUNCTION**
-
 		
-
 		Node *nodeBefore=currentNode; 
-
 		Node *nodeAfter=currentNode->next->next; 
 
-		
 
 		nodeBefore->next=nodeAfter;
-
 		nodeAfter->previous=nodeBefore;	
 
 	} 
-
-
-
-
-
 } // end funtion removeNode
 
 
