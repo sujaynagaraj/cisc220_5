@@ -8,8 +8,9 @@ Gabby Bermudez 10157238
 
 #include<stdio.h>
 #include<stdlib.h>
-#include "mystring.h"
+#include "udll.h"
 
+/*
 //Union that can contain different types of data
 typedef union {
   int intData;
@@ -34,6 +35,7 @@ typedef struct Node {
 
   void* dataType;  
 } Node;
+*/
 
 Node* head = NULL;
 Node* last = NULL;

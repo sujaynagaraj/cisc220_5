@@ -8,9 +8,29 @@
 #ifndef UDLL_H
 #define UDLL_H
 
-typedef union Data;
+typedef union {
+  int intData;
+  int* intPointData;
+  float floatData;
+  float* floatPointData;
+  char charData;
+  char* charPointData;
+} Data;
 
-typedef struct Node Node;
+typedef struct Node {
+  
+  Data data;
+
+  int index;
+
+  int length;
+  
+  struct Node* previous;
+
+  struct Node* next;
+
+  void* dataType;  
+} Node;
 
 int length();
 void insert(int index,  Data data, int dataType);
