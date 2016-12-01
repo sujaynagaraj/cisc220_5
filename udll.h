@@ -8,6 +8,10 @@
 #ifndef UDLL_H
 #define UDLL_H
 
+typedef union Data;
+
+typedef struct Node Node;
+
 int length();
 void insert(int index,  Data data, int dataType);
 void removeNode(int index);

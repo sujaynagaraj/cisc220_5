@@ -7,11 +7,11 @@ Lemonte Alie-Lamarche 10153786
 
 #include<stdio.h>
 
-main.o: main.c udll.c udll.h;
-	gcc -Wall -o main.c mystring.c
+udll.o: udll.c udll.h;
+	gcc -Wall -c udll.c udll.h
 
-udll.o: udll.c;
-	gcc -Wall -o udll.c udll.h
+main.o: main.c udll.c udll.h;
+	gcc -Wall -c main.c udll.c
 
 universalDoubleLinkeList: main.o;
 	gcc -Wall -o universalDoubleLinkeList main.o udll.o

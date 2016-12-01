@@ -8,6 +8,7 @@ Gabby Bermudez 10157238
 
 #include<stdio.h>
 #include<stdlib.h>
+#include "mystring.h"
 
 //Union that can contain different types of data
 typedef union {
