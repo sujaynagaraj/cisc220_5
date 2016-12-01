@@ -89,7 +89,20 @@ void insert(int index,  Data data, int dataType){
 			while(i>index && temp!=NULL){ // traversing through list from tail
 			temp=temp->previous; //decrementing the pointer
 			i--;
+				
+				
 			}
+			
+			
+		newNode= (Node*)malloc(sizeof(Node));
+		newNode->data=data;
+		newNode->next=temp;
+		newNode->previous=temp->previous;
+		if (temp->previous != NULL){
+			temp->previous->next=newNode;
+		}
+		temp->previous=newNode;
+		head->length=length();
 			
 		}
 		else {
