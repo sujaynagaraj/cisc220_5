@@ -82,8 +82,11 @@ void insert(int index,  Data data, int dataType){
 	else {
 		temp=head;
 		int len = head->length;
+		int distanceFromHead=index;
+		int distanceFromLast=(len-1)-index;
 		
-		if (index>(len/2)){
+		
+		if (distancefromLast<=distancefromHead){
 			temp=last;
 			i=len-1;
 			while(i>index && temp!=NULL){ // traversing through list from tail
