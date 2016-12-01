@@ -1,9 +1,9 @@
-/.
+/*
 Wayne Liong 10111359
 Lemonte Alie-Lamarche 10153786
 Sujay Nagaraj 10133356
 Gabby Bermudez 10157238
-./
+*/
 
 
 #include<stdio.h>
@@ -34,22 +34,17 @@ typedef struct Node {
   void dataType;  
 } Node;
 
-
 Node* head = NULL;
 Node* last = NULL;
 
-int length(){
+int length() {
 	int len = 0;
-	Node* currentnode;
-
-	currentnode = head;
-	while(currentnode->next != NULL){
-		len++;
-		currentnode=currentnode->next;
+	if(head != NULL){
+		len=(head->length);
 	}
-	
 return len;
 }
+
 
 void insert(int index,  Data data, int dataType){
 	int i;
@@ -61,7 +56,7 @@ void insert(int index,  Data data, int dataType){
 		newNode->data=data;
 		newNode->next=NULL;
 		newNode->previous=NULL;
-		newNode->length=length();
+		newNode->length=(length()+1);
 
 		head=newNode;
 		last=newNode;//because the newNode is the only node now
