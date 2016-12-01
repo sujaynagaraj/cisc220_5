@@ -31,25 +31,20 @@ typedef struct Node {
 
   struct Node* next;
 
-  void dataType;  
+  void* dataType;  
 } Node;
-
 
 Node* head = NULL;
 Node* last = NULL;
 
-int length(){
+int length() {
 	int len = 0;
-	Node* currentnode;
-
-	currentnode = head;
-	while(currentnode->next != NULL){
-		len++;
-		currentnode=currentnode->next;
+	if(head != NULL){
+		len=(head->length);
 	}
-	
 return len;
 }
+
 
 void insert(int index,  Data data, int dataType){
 	int i;
@@ -61,7 +56,7 @@ void insert(int index,  Data data, int dataType){
 		newNode->data=data;
 		newNode->next=NULL;
 		newNode->previous=NULL;
-		newNode->length=length();
+		newNode->length=(length()+1);
 
 		head=newNode;
 		last=newNode;//because the newNode is the only node now
@@ -81,13 +76,44 @@ void insert(int index,  Data data, int dataType){
 
 	else {
 		temp=head;
-		i=0;
+		int len = head->length;
+		int distanceFromHead=index;
+		int distanceFromLast=(len-1)-index;
+		
+		
+		if (distanceFromLast<=distanceFromHead){
+			temp=last;
+			i=len-1;
+			while(i>index && temp!=NULL){ // traversing through list from tail
+			temp=temp->previous; //decrementing the pointer
+			i--;
+				
+				
+			}
+			
+			
+		newNode= (Node*)malloc(sizeof(Node));
+		newNode->data=data;
+		newNode->next=temp;
+		
+		if (temp->previous != NULL){
+			newNode->previous=temp->previous;
+			temp->previous->next=newNode;
+		}
+		temp->previous=newNode;
+		head->length=length();
+			
+		}
+		else {
+			i=0;
 		
 		//need to add: traversal from tail to head if it is more efficient. Need length function
 		while(i<index-1 && temp!=NULL){ // traversing through list from head
 			temp=temp->next; //incrementing the pointer
 			i++;
 		}
+		}
+		
 		newNode= (Node*)malloc(sizeof(Node));
 		newNode->data=data;
 		newNode->next=temp->next;
@@ -278,7 +304,8 @@ int dataToAdd;
                 printf("Enter data of %d node : ", n);
                 scanf("%d", &dataToAdd);
  		newData.intData=dataToAdd;
-                insert(n, newData);
+		int dataType=0;
+                insert(n, newData, dataType);
                 break;
             case 5:
                 displayList();
