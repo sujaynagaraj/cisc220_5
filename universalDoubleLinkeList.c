@@ -31,7 +31,7 @@ typedef struct Node {
 
   struct Node* next;
 
-  void dataType;  
+  void* dataType;  
 } Node;
 
 Node* head = NULL;
@@ -76,13 +76,44 @@ void insert(int index,  Data data, int dataType){
 
 	else {
 		temp=head;
-		i=0;
+		int len = head->length;
+		int distanceFromHead=index;
+		int distanceFromLast=(len-1)-index;
+		
+		
+		if (distanceFromLast<=distanceFromHead){
+			temp=last;
+			i=len-1;
+			while(i>index && temp!=NULL){ // traversing through list from tail
+			temp=temp->previous; //decrementing the pointer
+			i--;
+				
+				
+			}
+			
+			
+		newNode= (Node*)malloc(sizeof(Node));
+		newNode->data=data;
+		newNode->next=temp;
+		
+		if (temp->previous != NULL){
+			newNode->previous=temp->previous;
+			temp->previous->next=newNode;
+		}
+		temp->previous=newNode;
+		head->length=length();
+			
+		}
+		else {
+			i=0;
 		
 		//need to add: traversal from tail to head if it is more efficient. Need length function
 		while(i<index-1 && temp!=NULL){ // traversing through list from head
 			temp=temp->next; //incrementing the pointer
 			i++;
 		}
+		}
+		
 		newNode= (Node*)malloc(sizeof(Node));
 		newNode->data=data;
 		newNode->next=temp->next;
@@ -125,6 +156,8 @@ void removeNode(int index){
 	// iii) We are removing the only node in the list.
 	// to achieve this, point head to NULL and last to NULL. This creates an empty list.
 	else if (index==0 && head->next==NULL){
+		Node *toBeDeleted=head;
+		free(toBeDeleted);
 		head=NULL;
 		last=NULL;
 	}		
@@ -132,18 +165,20 @@ void removeNode(int index){
 	// to acheive this, head to the first node, store its 'next pointer' in a temporary variable
 	// and point head to this temporary variable.
 	else if (index==0){
- 		Node *temp;
-		temp=head->next;
-		head=temp;
+ 		Node *toBeDeleted;
+		toBeDeleted=head; //temporary pointer to current head node
+		head=head->next; //point the current head pointer to the second node
+		free(toBeDeleted);
 	}
 	// v) We are removing the last node in the list and it contains more than one element.
 	// to achieve this, head to the last node, and then head to its previous node. Then,
 	//  point the penultimate node's next pointer to NULL. 
 	else if (index+1==lengthOfList){ 
-		Node *temp;
-		temp=last->previous;
-		temp->next=NULL;
-		last=temp;
+		Node *toBeDeleted;
+		toBeDeleted=last;
+		last=last->previous;
+		last->next=NULL;
+		free(toBeDeleted);
 	}
 	// Finally, if the node is any other node, we will use the length function to determine 
 	// whether iteration from head or iteration from last is faster. The structure of the 
@@ -255,7 +290,8 @@ int dataToAdd;
                 printf("Enter data of %d node : ", n);
                 scanf("%d", &dataToAdd);
  		newData.intData=dataToAdd;
-                insert(n, newData);
+		int dataType=0;
+                insert(n, newData, dataType);
                 break;
             case 5:
                 displayList();
