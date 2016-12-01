@@ -190,12 +190,13 @@ void removeNode(int index){
 		int distanceFromLast=((lengthOfList-1)-index);
 		int distanceFromHead=index;
 			
-		if (distanceFromHead <= distanceFromTail){
+		if (distanceFromHead <= distanceFromLast){
 		 	currentIndex=0;
 			currentNode=head;
 			while (currentIndex < index){ // stops at node before node being removed
 				currentIndex++;
 				currentNode=currentNode->next; // move forward one node
+			}
 		} //end if 
 		else { // distanceFromHead > distanceFromTail
 			currentIndex=lengthOfList-1;
