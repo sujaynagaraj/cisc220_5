@@ -1,9 +1,9 @@
-/*
+/.
 Wayne Liong 10111359
 Lemonte Alie-Lamarche 10153786
 Sujay Nagaraj 10133356
 Gabby Bermudez 10157238
-*/
+./
 
 
 #include<stdio.h>
@@ -81,13 +81,27 @@ void insert(int index,  Data data, int dataType){
 
 	else {
 		temp=head;
-		i=0;
+		int len = newNode->length;
+		
+		if (index<=(len/2){
+			temp=last;
+			i=len-1;
+			while(i>index && temp!=NULL){ // traversing through list from tail
+			temp=temp->previous; //decrementing the pointer
+			i--;
+			}
+			
+		}
+		else {
+			i=0;
 		
 		//need to add: traversal from tail to head if it is more efficient. Need length function
 		while(i<index-1 && temp!=NULL){ // traversing through list from head
 			temp=temp->next; //incrementing the pointer
 			i++;
 		}
+		}
+		
 		newNode= (Node*)malloc(sizeof(Node));
 		newNode->data=data;
 		newNode->next=temp->next;
