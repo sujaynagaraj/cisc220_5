@@ -179,6 +179,7 @@ void removeNode(int index){
 		toBeDeleted=head; //temporary pointer to current head node
 		head=head->next; //point the current head pointer to the second node
 		free(toBeDeleted);
+		head->length-=1;
 	}
 	// v) We are removing the last node in the list and it contains more than one element.
 	// to achieve this, head to the last node, and then head to its previous node. Then,
@@ -189,6 +190,7 @@ void removeNode(int index){
 		last=last->previous;
 		last->next=NULL;
 		free(toBeDeleted);
+		head->length-=1;
 	}
 	// Finally, if the node is any other node, we will use the length function to determine 
 	// whether iteration from head or iteration from last is faster. The structure of the 
@@ -226,7 +228,7 @@ void removeNode(int index){
 		nodeAfter->previous=nodeBefore;	
 		
 		free(toBeDeleted);
-
+		head->length-=1;
 	} 
 } // end funtion removeNode
 
