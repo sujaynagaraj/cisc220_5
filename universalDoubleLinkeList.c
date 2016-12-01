@@ -25,7 +25,8 @@ typedef struct Node {
   struct Node* previous;
 
   struct Node* next;
-  
+
+  void dataType;  
 } Node;
 
 
@@ -45,7 +46,7 @@ int length(){
 return len;
 }
 
-void insert(int index,  Data data){
+void insert(int index,  Data data, void dataType){
 	int i;
 	Node *newNode, *temp; // *newNode is a pointer to the newNode to insert. *temp is a pointer that helps us traverse through list
 	
