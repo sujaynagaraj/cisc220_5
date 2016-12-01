@@ -159,22 +159,36 @@ void removeNode(int index){
 	// conditional statements should guarantee that this block only executes if index is in 
 	// range, and it is neither the head nor tail of the list. 	
 	else{
-		// If iterating from head is faster;
-		int currentIndex=0;
+		int currentIndex;
 		Node *currentNode=head;
+		int distanceFromLast=((lengthOfList-1)-index);
+		int distanceFromHead=index;
+			
+		if (distanceFromHead <= distanceFromTail){
+		 	currentIndex=0;
+			currentNode=head;
+			while (currentIndex < index){ // stops at node before node being removed
+				currentIndex++;
+				currentNode=currentNode->next; // move forward one node
+		} //end if 
+		else { // distanceFromHead > distanceFromTail
+			currentIndex=lengthOfList-1;
+			currentNode=last;
+			while (currentIndex > index){
+				currentIndex--; // stops at node being removed
+				currentNode=currentNode->previous; //move back one node
+			}
+		} // end else
 		
-		while (currentIndex < index-1){ // stops one node before the node being removed
-			currentIndex++;
-			currentNode=currentNode->next; // move forward one node
-		}
-		// Insert code for when iterating from tail is faster **REQUIRES LENGTH FUNCTION**
+		Node *toBeDeleted=currentNode;
 		
-		Node *nodeBefore=currentNode; 
-		Node *nodeAfter=currentNode->next->next; 
-
+		Node *nodeBefore=currentNode->previous; 
+		Node *nodeAfter=currentNode->next; 
 
 		nodeBefore->next=nodeAfter;
 		nodeAfter->previous=nodeBefore;	
+		
+		free(toBeDeleted);
 
 	} 
 } // end funtion removeNode
