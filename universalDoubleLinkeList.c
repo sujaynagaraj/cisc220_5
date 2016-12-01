@@ -59,7 +59,7 @@ void insert(int index,  Data data, int dataType){
 
 		head=newNode;
 		last=newNode;//because the newNode is the only node now
-		head->length=1;
+		head->length=(length()+1);
 	}
 	//adding to the beginning of the list
 	else if (index==0){
@@ -70,7 +70,7 @@ void insert(int index,  Data data, int dataType){
 		newNode->length=length();
 		head->previous=newNode;
 		head=newNode;
-		head->length=head->length+1;
+		head->length=((head->length)+1);
 	}	
 	//elif adding to end of list
 	//this can be implemented once we have a length function
@@ -82,7 +82,7 @@ void insert(int index,  Data data, int dataType){
 		newNode->previous=temp;
 		newNode->next=NULL;
 		last=newNode;
-		head->length=head->length+1;
+		head->length=((head->length)+1);
 	}
 	else {
 		temp=head;
@@ -111,7 +111,7 @@ void insert(int index,  Data data, int dataType){
 			temp->previous->next=newNode;
 		}
 		temp->previous=newNode;
-		head->length=head->length+1;
+		head->length=((head->length)+1);
 			
 		}
 		else {
