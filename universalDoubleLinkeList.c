@@ -75,7 +75,16 @@ void insert(int index,  Data data, int dataType){
 	}	
 	//elif adding to end of list
 	//this can be implemented once we have a length function
-
+	else if (index==head->length){
+		temp=tail;
+		newNode=(Node*)malloc(sizeof(Node));
+		newNode->data=data;
+		temp->next=newNode;
+		newNode->previous=temp;
+		newNode->next=NULL;
+		last=newNode;
+		head->length=head->length+1;
+	}
 	else {
 		temp=head;
 		int len = head->length;
