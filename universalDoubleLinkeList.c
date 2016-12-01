@@ -97,8 +97,9 @@ void insert(int index,  Data data, int dataType){
 		newNode= (Node*)malloc(sizeof(Node));
 		newNode->data=data;
 		newNode->next=temp;
-		newNode->previous=temp->previous;
+		
 		if (temp->previous != NULL){
+			newNode->previous=temp->previous;
 			temp->previous->next=newNode;
 		}
 		temp->previous=newNode;
