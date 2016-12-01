@@ -65,7 +65,7 @@ void insert(int index,  Data data){
 		newNode->data=data;
 		newNode->next=head;
 		newNode->previous=NULL;
-		newNode->length=length;
+		newNode->length=length();
 		head->previous=newNode;
 		head=newNode;
 	}	
