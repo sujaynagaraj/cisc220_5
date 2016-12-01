@@ -56,11 +56,10 @@ void insert(int index,  Data data, int dataType){
 		newNode->data=data;
 		newNode->next=NULL;
 		newNode->previous=NULL;
-		newNode->length=(length()+1);
 
 		head=newNode;
 		last=newNode;//because the newNode is the only node now
-		head->length=head->length+1;
+		head->length=1;
 	}
 	//adding to the beginning of the list
 	else if (index==0){
