@@ -1,3 +1,6 @@
+/.
+
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -14,9 +17,13 @@ typedef union {
 typedef struct Node {
   
   Data data;
+
   int index;
+
+  int length;
   
   struct Node* previous;
+
   struct Node* next;
   
 } Node;
@@ -25,6 +32,18 @@ typedef struct Node {
 Node* head = NULL;
 Node* last = NULL;
 
+int length()
+	int len = 0;
+	struct Node* currentnode;
+
+	currentnode = head;
+	while(currentnode.next != NULL){
+		len++;
+		currentnode=currentnode->next;
+	}
+	
+return len;
+}
 
 void insert(int index,  Data data){
 	int i;
@@ -36,7 +55,8 @@ void insert(int index,  Data data){
 		newNode->data=data;
 		newNode->next=NULL;
 		newNode->previous=NULL;
-		head=newNode;
+		newNode->length=length();
+		head=newnode;
 		last=newNode;//because the newNode is the only node now
 	}
 	//adding to the beginning of the list
@@ -45,8 +65,9 @@ void insert(int index,  Data data){
 		newNode->data=data;
 		newNode->next=head;
 		newNode->previous=NULL;
+		newNode->length=length;
 		head->previous=newNode;
-		head=newNode;	
+		head=newNode;
 	}	
 	//elif adding to end of list
 	//this can be implemented once we have a length function
@@ -68,6 +89,7 @@ void insert(int index,  Data data){
 			temp->next->previous=newNode;
 		}
 		temp->next=newNode;
+		head->length=length()
 	}
   
   
