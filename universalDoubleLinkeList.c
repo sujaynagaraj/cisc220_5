@@ -1,4 +1,4 @@
-/.
+
 
 
 #include<stdio.h>
@@ -32,12 +32,12 @@ typedef struct Node {
 Node* head = NULL;
 Node* last = NULL;
 
-int length()
+int length(){
 	int len = 0;
-	struct Node* currentnode;
+	Node* currentnode;
 
 	currentnode = head;
-	while(currentnode.next != NULL){
+	while(currentnode->next != NULL){
 		len++;
 		currentnode=currentnode->next;
 	}
@@ -57,7 +57,7 @@ void insert(int index,  Data data){
 		newNode->previous=NULL;
 		newNode->length=length();
 
-		head=newnode;
+		head=newNode;
 		last=newNode;//because the newNode is the only node now
 	}
 	//adding to the beginning of the list
@@ -90,7 +90,7 @@ void insert(int index,  Data data){
 			temp->next->previous=newNode;
 		}
 		temp->next=newNode;
-		head->length=length()
+		head->length=length();
 	}
   
   
@@ -101,23 +101,24 @@ void insert(int index,  Data data){
 // deletes the node with the specified index. It should connect the previous node [index-1] to
 // the following node [index+1]. If the node is at the beginning of the linked list, make sure 
 // to update the head pointer. If the node is at the end of the linked list, make sure to 
-
 // update the last pointer. Achieve this in the minimum number of iterations possible.
 
-
+/****** UPDATE FUNCTION TO PREVENT MEMORY LEAKS; FREE MEMORY UPON DELETING NODES *****/
 
 void removeNode(int index){
 	// We will first consider the possible edge cases (not all need to be done on their own,
 	// but this is a group assignment and doing so makes the code easier to follow).
-
-	int lengthOfList = head->length;
 	
+	int lengthOfList = 0;
+	if (head != NULL){ // Assume list is empty, and update length if it is not.
+		lengthOfList = head->length;
+	}
 	// i) If list is empty, we are done.
 	if (head==NULL){
 		return;
 	}
-	// ii) The index is out of range; do nothing. **REQUIRES LENGTH FUNCTION**
-	else if (index > lengthOfList){
+	// ii) The index is out of range; do nothing.
+	else if (index+1 > lengthOfList){
 		return;
 	} 		
 	// iii) We are removing the only node in the list.
@@ -137,7 +138,7 @@ void removeNode(int index){
 	// v) We are removing the last node in the list and it contains more than one element.
 	// to achieve this, head to the last node, and then head to its previous node. Then,
 	//  point the penultimate node's next pointer to NULL. 
-	else if (index==lengthOfList){ 
+	else if (index+1==lengthOfList){ 
 		Node *temp;
 		temp=last->previous;
 		temp->next=NULL;
