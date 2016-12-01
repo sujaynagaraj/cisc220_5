@@ -1,4 +1,9 @@
-
+/.
+Wayne Liong 10111359
+Lemonte Alie-Lamarche 10153786
+Sujay Nagaraj 10133356
+Gabby Bermudez 10157238
+./
 
 
 #include<stdio.h>
@@ -46,7 +51,7 @@ int length(){
 return len;
 }
 
-void insert(int index,  Data data, void dataType){
+void insert(int index,  Data data, int dataType){
 	int i;
 	Node *newNode, *temp; // *newNode is a pointer to the newNode to insert. *temp is a pointer that helps us traverse through list
 	
