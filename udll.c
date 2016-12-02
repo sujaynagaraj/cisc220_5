@@ -275,7 +275,7 @@ void get(int index){
 	if ((temp->dataType) == 0)
 		printf("%d ", temp->data.intData) ;
 	else if ((temp->dataType) == 1)
-		printf("%p "temp->data.intPointData);
+		printf("%p ",temp->data.intPointData);
 	else if ((temp->dataType) == 2)
 		printf("%f", temp->data.floatData);
 	else if ((temp->dataType) == 3)
