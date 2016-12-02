@@ -11,9 +11,7 @@
 
 int main(){
 	int userInput=-1;
-	int n;
-	Data newData;
-	int dataToAdd;
+	
 	int *userInputPointer = &userInput;
 	printf("Welcome to the linked list program!\n\n");	
 	
@@ -28,6 +26,9 @@ int main(){
 		
 		//This simply creates a Data type union of the input (demonstration for the example of Int input) and calls the insert function
 		if (userInput==1){
+			int n;
+			Data newData;
+			int dataToAdd;
 			printf("Enter the index where you want to insert new node: ");
                		 scanf("%d", &n);
              		   printf("Enter data of %d node : ", n);
