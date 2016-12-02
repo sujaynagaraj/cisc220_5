@@ -38,7 +38,10 @@ int main(){
      
 		}	
 		else if (userInput==2){
-			// call remove;
+			int indexToDelete;
+			printf("Enter index of node you wish to delete: ");
+			scanf("%d",&indexToDelete);
+			remove(indexToDelete);
 			return 0;
 		}
 		else if (userInput==3){
