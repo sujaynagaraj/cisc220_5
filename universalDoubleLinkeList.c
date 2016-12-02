@@ -260,6 +260,53 @@ void displayList()
     }
 }
 
+
+union Data get(int index){
+	Node=temp;
+	int currentIndex;
+	distance = ((length() -1) - index);
+	
+	if( head == NULL )
+		return;
+	
+	else if (index < 0  || index >= length())
+		return;
+	
+	else if (distance >index) {
+		temp=head;
+		currentIndex=0;
+		while (currentIndex < index){
+			temp = temp->next;
+			index=index+1;
+		}
+	}// end else if
+	
+	else {
+		temp=tail;
+		currentIndex = length()-1;
+		while (currentIndex > index){
+			temp = temp->previous;
+			currentIndex=currentIndex-1;
+		}
+	}
+	
+	//Set of if statements that determine which union variable is used
+	if (temp->dataType == 0)
+		return temp->dataType.intData;
+	else if (temp->dataType == 1)
+		return temp->dataType.intPointData;
+	else if (temp->dataType == 2)
+		return temp->dataType.floatData;
+	else if (temp->dataType == 3)
+		return temp->dataType.floatPoitData;
+	else if (temp->dataType == 4)
+		return temp->dataType.charData;
+	else if (temp->dataType == 5)
+		return temp->dataType.charPointData;
+}// end of Get
+
+
+
 //COPIED FROM ANOTHER WEBSITE. GOOD FOR TESTING. NEED TO DELETE BEFORE SUBMISSION. Feel free to add code to help test your individual functions.
 int main(){
 
