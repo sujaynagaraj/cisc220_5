@@ -258,7 +258,7 @@ union Data get(int index){
 		currentIndex=0;
 		while (currentIndex < index){
 			temp = temp->next;
-			index=index+1;
+			currentIndex=currentIndex+1;
 		}
 	}// end else if
 	
