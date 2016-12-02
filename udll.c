@@ -10,7 +10,9 @@ Gabby Bermudez 10157238
 #include<stdlib.h>
 #include "udll.h"
 
+
 /*
+
 //Union that can contain different types of data
 typedef union {
   int intData;
@@ -35,6 +37,7 @@ typedef struct Node {
 
   void* dataType;  
 } Node;
+
 */
 
 Node* head = NULL;
@@ -235,4 +238,7 @@ void removeNode(int index){
 	} 
 } // end funtion removeNode
 
-
+/* int main(){
+	printf("Hello World!\n");
+	return 0;
+} */

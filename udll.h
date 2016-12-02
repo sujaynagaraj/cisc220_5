@@ -30,7 +30,7 @@ typedef struct Node {
   struct Node* next;
 
   void* dataType;  
-} Node;
+} Node; 
 
 int length();
 void insert(int index,  Data data, int dataType);
