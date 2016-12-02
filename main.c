@@ -64,6 +64,6 @@ int main(){
 		
 	} // end while;
 	
-	freespace();
+	freeSpace();
 	return 0;
 } // end function main;
