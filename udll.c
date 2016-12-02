@@ -244,7 +244,7 @@ void removeNode(int index){
 } // end funtion removeNode
 
 
-union Data* get(int index){
+void get(int index){
 	Node *temp;
 	int currentIndex;
 	int distance = ((length() -1) - index);
@@ -273,17 +273,17 @@ union Data* get(int index){
 	
 	//Set of if statements that determine which union variable is used
 	if ((temp->dataType) == 0)
-		return temp->data.intData ;
+		printf( temp->data.intData) ;
 	else if ((temp->dataType) == 1)
-		return temp->data.intPointData;
+		printf(temp->data.intPointData);
 	else if ((temp->dataType) == 2)
-		return temp->data.floatData;
+		printf( temp->data.floatData);
 	else if ((temp->dataType) == 3)
-		return temp->data.floatPointData;
+		printf( temp->data.floatPointData);
 	else if ((temp->dataType) == 4)
-		return temp->data.charData;
+		printf( temp->data.charData);
 	else //((temp->dataType) == 5)
-		return temp->data.charPointData;
+		printf( temp->data.charPointData);
 }// end of Get
 
 
