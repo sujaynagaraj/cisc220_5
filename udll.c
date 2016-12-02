@@ -37,8 +37,8 @@ typedef struct Node {
 */
 
 
-Node* head = NULL;
-Node* last = NULL;
+//Node* head = NULL;
+//Node* last = NULL;
 
 int length() {
 	int len = 0;
