@@ -32,10 +32,10 @@ typedef struct Node {
   int dataType;  
 } Node; 
 
-Node* head = NULL;
-Node* last = NULL;
+
 int length();
 void insert(int index,  Data data, int dataType);
 void removeNode(int index);
 void get(int index);
+void freeSpace();
 #endif
