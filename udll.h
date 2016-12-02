@@ -35,5 +35,5 @@ typedef struct Node {
 int length();
 void insert(int index,  Data data, int dataType);
 void removeNode(int index);
-union Data get(int index);
+union Data* get(int index);
 #endif
