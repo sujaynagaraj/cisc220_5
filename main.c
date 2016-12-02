@@ -7,7 +7,6 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-//#include"udll.c"
 #include"udll.h"
 
 int main(){
