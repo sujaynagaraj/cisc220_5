@@ -29,7 +29,7 @@ typedef struct Node {
 
   struct Node* next;
 
-  void* dataType;  
+  int* dataType;  
 } Node; 
 
 int length();
