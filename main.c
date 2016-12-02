@@ -63,18 +63,6 @@ int main(){
 		
 		
 	} // end while;
-	Node* temp = head;
-	if (temp==NULL){
-		return 0;	
-	}
-	else{
-		while (temp->next!=NULL){
-			temp=temp->next;
-			free(temp->previous);
-		}
-		
-		free(temp);
-	}
 	
 	
 	return 0;
