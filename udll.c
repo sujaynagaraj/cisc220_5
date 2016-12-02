@@ -269,17 +269,17 @@ union Data get(int index){
 	
 	//Set of if statements that determine which union variable is used
 	if (temp->dataType == 0)
-		return temp->dataType.intData;
+		return temp->data.intData;
 	else if (temp->dataType == 1)
-		return temp->dataType.intPointData;
+		return temp->data.intPointData;
 	else if (temp->dataType == 2)
-		return temp->dataType.floatData;
+		return temp->data.floatData;
 	else if (temp->dataType == 3)
-		return temp->dataType.floatPoitData;
+		return temp->data.floatPoitData;
 	else if (temp->dataType == 4)
-		return temp->dataType.charData;
+		return temp->data.charData;
 	else if (temp->dataType == 5)
-		return temp->dataType.charPointData;
+		return temp->data.charPointData;
 }// end of Get
 
 
