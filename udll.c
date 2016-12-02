@@ -152,7 +152,7 @@ void insert(int index,  Data data, int dataType){
 // to update the head pointer. If the node is at the end of the linked list, make sure to 
 // update the last pointer. Achieve this in the minimum number of iterations possible.
 
-/****** UPDATE FUNCTION TO PREVENT MEMORY LEAKS; FREE MEMORY UPON DELETING NODES *****/
+
 
 void removeNode(int index){
 	// We will first consider the possible edge cases (not all need to be done on their own,
