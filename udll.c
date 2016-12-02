@@ -36,8 +36,8 @@ typedef struct Node {
 } Node;
 */
 
-
-
+Node* head=NULL;
+Node* last=NULL;
 
 int length() {
 	int len = 0;
@@ -288,7 +288,7 @@ void get(int index){
 void freeSpace(){
 	Node* temp = head;
 	if (temp==NULL){
-		return 0;	
+		return;	
 	}
 	else{
 		while (temp->next!=NULL){
