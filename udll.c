@@ -273,17 +273,17 @@ void get(int index){
 	
 	//Set of if statements that determine which union variable is used
 	if ((temp->dataType) == 0)
-		printf( temp->data.intData) ;
+		printf("%d ", temp->data.intData) ;
 	else if ((temp->dataType) == 1)
-		printf(temp->data.intPointData);
+		printf("%p "temp->data.intPointData);
 	else if ((temp->dataType) == 2)
-		printf( temp->data.floatData);
+		printf("%f", temp->data.floatData);
 	else if ((temp->dataType) == 3)
-		printf( temp->data.floatPointData);
+		printf("%p ", temp->data.floatPointData);
 	else if ((temp->dataType) == 4)
-		printf( temp->data.charData);
+		printf(" %c", temp->data.charData);
 	else //((temp->dataType) == 5)
-		printf( temp->data.charPointData);
+		printf("%p", temp->data.charPointData);
 }// end of Get
 
 
