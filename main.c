@@ -24,9 +24,16 @@ int main(){
 		printf("What will you do? :  ");
 		scanf("%d",userInputPointer);
 		
+		//This simply creates a Data type union of the input (demonstration for the example of Int input) and calls the insert function
 		if (userInput==1){
-			// call insert;
-			return 0; 
+			printf("Enter the index where you want to insert new node: ");
+               		 scanf("%d", &n);
+             		   printf("Enter data of %d node : ", n);
+              		  scanf("%d", &dataToAdd);
+ 			newData.intData=dataToAdd;
+			int dataType=0;
+            	        insert(n, newData, dataType);
+     
 		}	
 		else if (userInput==2){
 			// call remove;
