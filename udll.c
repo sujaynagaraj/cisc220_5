@@ -285,5 +285,19 @@ void get(int index){
 		printf("The value at node %d is: '%p'",index, temp->data.charPointData);
 }// end of Get
 
+void freeSpace(){
+	Node* temp = head;
+	if (temp==NULL){
+		return 0;	
+	}
+	else{
+		while (temp->next!=NULL){
+			temp=temp->next;
+			free(temp->previous);
+		}
+		
+		free(temp);
+	}
+}
 
 
