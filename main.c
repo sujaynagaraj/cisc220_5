@@ -12,6 +12,9 @@
 
 int main(){
 	int userInput=-1;
+	int n;
+	Data newData;
+	int dataToAdd;
 	int *userInputPointer = &userInput;
 	printf("Welcome to the linked list program!\n\n");	
 	
