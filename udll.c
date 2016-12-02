@@ -214,9 +214,9 @@ void removeNode(int index){
 
 
 union Data get(int index){
-	Node=temp;
+	Node *temp;
 	int currentIndex;
-	distance = ((length() -1) - index);
+	int distance = ((length() -1) - index);
 	
 	if( head == NULL )
 		return;
@@ -232,7 +232,7 @@ union Data get(int index){
 	}// end else if
 	
 	else {
-		temp=tail;
+		temp=last;
 		currentIndex = length()-1;
 		while (currentIndex > index){
 			temp = temp->previous;
