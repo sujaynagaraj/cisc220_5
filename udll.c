@@ -280,7 +280,7 @@ union Data get(int index){
 	else if ((temp->dataType) == 2)
 		return temp->data.floatData;
 	else if ((temp->dataType) == 3)
-		return temp->data.floatPoitData;
+		return temp->data.floatPointData;
 	else if ((temp->dataType) == 4)
 		return temp->data.charData;
 	else if ((temp->dataType) == 5)
