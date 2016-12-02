@@ -62,12 +62,14 @@ void insert(int index,  Data data, int dataType){
 
 		head=newNode;
 		last=newNode;//because the newNode is the only node now
+		newNode->dataType = dataType;
 		head->length=1;
 	}
 	//adding to the beginning of the list
 	else if (index==0){
 		newNode=(Node*)malloc(sizeof(Node));
 		newNode->data=data;
+		newNode->dataType=dataType;
 		newNode->next=head;
 		newNode->previous=NULL;
 		newNode->length=length();
@@ -81,6 +83,7 @@ void insert(int index,  Data data, int dataType){
 		temp=last;
 		newNode=(Node*)malloc(sizeof(Node));
 		newNode->data=data;
+		newNode->dataType=dataType;
 		temp->next=newNode;
 		newNode->previous=temp;
 		newNode->next=NULL;
@@ -107,6 +110,7 @@ void insert(int index,  Data data, int dataType){
 			
 		newNode= (Node*)malloc(sizeof(Node));
 		newNode->data=data;
+		newNode->dataType=dataType;
 		newNode->next=temp;
 		
 		if (temp->previous != NULL){
@@ -129,6 +133,7 @@ void insert(int index,  Data data, int dataType){
 		
 		newNode= (Node*)malloc(sizeof(Node));
 		newNode->data=data;
+		newNode->dataType=dataType;
 		newNode->next=temp->next;
 		newNode->previous=temp;
 		if (temp->next != NULL){
