@@ -10,6 +10,33 @@ Gabby Bermudez 10157238
 #include "udll.h"
 
 
+//Union that can contain different types of data
+typedef union {
+  int intData;
+  int* intPointData;
+  float floatData;
+  float* floatPointData;
+  char charData;
+  char* charPointData;
+} Data;
+
+typedef struct Node {
+  
+  Data data;
+
+  int index;
+
+  int length;
+  
+  struct Node* previous;
+
+  struct Node* next;
+
+  void* dataType;  
+} Node;
+
+
+
 Node* head = NULL;
 Node* last = NULL;
 
