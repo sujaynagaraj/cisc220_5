@@ -242,7 +242,13 @@ void removeNode(int index){
 	} 
 } // end funtion removeNode
 
+/*
+For the get function, I had to make the return type void so that I can properly return to the user the value of whatever is in the node
+in the form of a print statement. We tried implementing the function as shown in the assigment where the return type of this function is
+a union called Data. However, using multiple different methods, we kept getting compilation errors (refer to change history). 
+As such, we deemed this to be the best way to show the user what the value is in the node.
 
+*/
 void get(int index){
 	Node *temp;
 	int currentIndex;
