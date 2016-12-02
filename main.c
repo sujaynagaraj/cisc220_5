@@ -50,7 +50,7 @@ int main(){
 		else if (userInput==3){
 			int indexChoice; 
 			printf("Enter the index of the linked list that you want to get ");
-			scanf("%d", indexChoice);
+			scanf("%d", %indexChoice);
 			get(indexChoice); 
 			return 0;
 		}
