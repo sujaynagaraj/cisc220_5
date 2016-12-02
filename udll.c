@@ -244,7 +244,7 @@ void removeNode(int index){
 } // end funtion removeNode
 
 
-union Data get(int index){
+union get(int index){
 	Node *temp;
 	int currentIndex;
 	int distance = ((length() -1) - index);
