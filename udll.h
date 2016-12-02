@@ -36,5 +36,8 @@ int length();
 void insert(int index,  Data data, int dataType);
 void removeNode(int index);
 union Data get(int index);
+<<<<<<< HEAD
 
+=======
+>>>>>>> dec8236f13abe33c03684d51c213bac07f8dc1f7
 #endif
