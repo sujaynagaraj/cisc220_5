@@ -45,14 +45,14 @@ int main(){
 			scanf("%d",&indexToDelete);
 			removeNode(indexToDelete);
 			// call remove;
-			return 0;
+			
 		}
 		else if (userInput==3){
 			int indexChoice; 
 			printf("Enter the index of the linked list that you want to get ");
 			scanf("%d", &indexChoice);
 			get(indexChoice); 
-			return 0;
+			
 		}
 		else if (userInput < 0 || userInput > 3){
 			printf("Error: '%d' is not a valid input. Enter int from 0-3.",userInput);
