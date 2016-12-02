@@ -273,17 +273,17 @@ void get(int index){
 	
 	//Set of if statements that determine which union variable is used
 	if ((temp->dataType) == 0)
-		printf("%d ", temp->data.intData) ;
+		printf("The value at node %d is: '%d' \n ", index, temp->data.intData) ;
 	else if ((temp->dataType) == 1)
-		printf("%p ",temp->data.intPointData);
+		printf("The value at node %d is: '%p' \n ",index,temp->data.intPointData);
 	else if ((temp->dataType) == 2)
-		printf("%f", temp->data.floatData);
+		printf("The value at node %d is: '%f'",index, temp->data.floatData);
 	else if ((temp->dataType) == 3)
-		printf("%p ", temp->data.floatPointData);
+		printf("The value at node %d is: '%p' ",index, temp->data.floatPointData);
 	else if ((temp->dataType) == 4)
-		printf(" %c", temp->data.charData);
+		printf("The value at node %d is: '%c'",index, temp->data.charData);
 	else //((temp->dataType) == 5)
-		printf("%p", temp->data.charPointData);
+		printf("The value at node %d is: '%p'",index, temp->data.charPointData);
 }// end of Get
 
 
