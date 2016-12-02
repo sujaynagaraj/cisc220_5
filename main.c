@@ -7,11 +7,14 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+//#include"udll.c"
 #include"udll.h"
 
 int main(){
 	int userInput=-1;
-	
+	int n;
+	Data newData;
+	int dataToAdd;
 	int *userInputPointer = &userInput;
 	printf("Welcome to the linked list program!\n\n");	
 	
@@ -26,9 +29,6 @@ int main(){
 		
 		//This simply creates a Data type union of the input (demonstration for the example of Int input) and calls the insert function
 		if (userInput==1){
-			int n;
-			Data newData;
-			int dataToAdd;
 			printf("Enter the index where you want to insert new node: ");
                		 scanf("%d", &n);
              		   printf("Enter data of %d node : ", n);
@@ -39,14 +39,14 @@ int main(){
      
 		}	
 		else if (userInput==2){
-			int indexToDelete;
-			printf("Enter index of node you wish to delete: ");
-			scanf("%d",&indexToDelete);
-			remove(indexToDelete);
+			// call remove;
 			return 0;
 		}
 		else if (userInput==3){
-			// call get;
+			int indexChoice; 
+			printf("Enter the index of the linked list that you want to get ");
+			scanf("%d", indexChoice);
+			get(indexChoice); 
 			return 0;
 		}
 		else if (userInput < 0 || userInput > 3){
