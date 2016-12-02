@@ -5,13 +5,14 @@
  * Gabby Bermudez 10157238
  */
 
-#include<stdio.h>;
-#include<stdlib.h>;
-#include"udll.c";
-#include"udll.h";
+#include<stdio.h>
+#include<stdlib.h>
+//#include"udll.c"
+#include"udll.h"
 
 int main(){
 	int userInput=-1;
+	int *userInputPointer = &userInput;
 	printf("Welcome to the linked list program!\n\n");	
 	
 	while (userInput != 0){
@@ -21,16 +22,19 @@ int main(){
 		printf("Enter 0 to exit the program.\n\n");
 
 		printf("What will you do? :  ");
-		scanf("%d",userInput);
+		scanf("%d",userInputPointer);
 		
 		if (userInput==1){
-			// call insert; 
+			// call insert;
+			return 0; 
 		}	
 		else if (userInput==2){
 			// call remove;
+			return 0;
 		}
 		else if (userInput==3){
 			// call get;
+			return 0;
 		}
 		else if (userInput < 0 || userInput > 3){
 			printf("Error: '%d' is not a valid input. Enter int from 0-3.",userInput);
